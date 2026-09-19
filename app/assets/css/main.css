@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-navy: #1B2D5B;
+  --color-navy-light: #2E4A8F;
+  --color-accent: #F5820A;
+  --color-accent-light: #FFA84D;
+  --color-ink: #1A1A1A;
+  --color-muted: #6B7280;
+  --color-surface: #F7F8FA;
+
+  --color-bg-dark: #0B1220;
+  --color-surface-dark: #121B2E;
+  --color-card-dark: #172236;
+  --color-stroke-dark: #24304A;
+  --color-muted-dark: #94A3B8;
+
+  --color-violet: #8B5CF6;
+  --color-cyan: #22D3EE;
+  --color-pink: #EC4899;
+  --color-green: #10B981;
+
+  --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: #ffffff;
+  background-image: radial-gradient(rgba(27, 45, 91, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.dark body {
+  background-color: var(--color-bg-dark);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  color: #E5E9F0;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
+.reveal-init {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

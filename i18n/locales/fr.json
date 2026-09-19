@@ -1,0 +1,186 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "about": "À propos",
+    "contact": "Contact",
+    "cta": "Demander une consultation"
+  },
+  "footer": {
+    "tagline": "Votre avenir commence ici.",
+    "navTitle": "Navigation",
+    "contactTitle": "Coordonnées",
+    "destinationsTitle": "Destinations",
+    "rights": "Tous droits réservés."
+  },
+  "common": {
+    "seeDetail": "Voir le détail",
+    "chooseOffer": "Choisir cette offre",
+    "mostChosen": "Le plus choisi",
+    "countries": {
+      "cameroon": "Cameroun",
+      "morocco": "Maroc",
+      "senegal": "Sénégal",
+      "kenya": "Kenya",
+      "southAfrica": "Afrique du Sud",
+      "france": "France",
+      "belgium": "Belgique",
+      "germany": "Allemagne",
+      "denmark": "Danemark",
+      "greece": "Grèce",
+      "estonia": "Estonie",
+      "doualaCameroon": "Douala, Cameroun"
+    }
+  },
+  "home": {
+    "badge": "Plateforme 360° de mobilité étudiante",
+    "title": "Votre avenir commence ici",
+    "subtitle": "GlobalEarn accompagne les étudiants africains qui préparent leurs études en Europe : un compte bloqué multi-pays, le Mobile Money pour financer le dossier depuis le pays d'origine, un logement trouvé grâce à l'IA, des assurances combinées et un accompagnement carrière jusqu'à l'installation.",
+    "ctaPrimary": "Demander une consultation",
+    "ctaSecondary": "Découvrir nos offres",
+    "illustrationTitle": "Illustration d'un parcours de mobilité étudiante entre l'Afrique et l'Europe",
+    "chips": {
+      "visa": "Visa",
+      "mobileMoney": "Mobile Money",
+      "housing": "Logement IA",
+      "insurance": "Assurance"
+    },
+    "whyTitle": "Pourquoi les familles choisissent GlobalEarn",
+    "whySubtitle": "Une plateforme pensée pour la réalité du financement et de la mobilité depuis l'Afrique, pas une simple adaptation d'un service pensé pour l'Europe.",
+    "features": {
+      "mobileMoney": { "title": "Mobile Money natif", "description": "MTN, Orange Money et Wave intégrés directement, sans passer par un virement international coûteux et lent." },
+      "multiCountry": { "title": "Un compte, plusieurs pays", "description": "Un seul compte bloqué couvre plusieurs destinations européennes, sans multiplier les démarches bancaires." },
+      "presence": { "title": "Présence physique en Afrique", "description": "Des bureaux locaux pour parler à quelqu'un en personne, pas uniquement une application." },
+      "allInOne": { "title": "Tout au même endroit", "description": "Logement, assurance et accompagnement carrière réunis dans un seul espace, plutôt que dispersés entre plusieurs prestataires." },
+      "verification": { "title": "Vérification consulaire instantanée", "description": "Nos partenariats API permettent aux ambassades de vérifier l'attestation de virement en temps réel." },
+      "followUp": { "title": "Suivi jusqu'à l'installation", "description": "L'accompagnement ne s'arrête pas au visa : nous restons présents pour le logement et les premiers pas sur place." }
+    },
+    "offersTitle": "Trois niveaux d'accompagnement",
+    "offersSubtitle": "Du compte bloqué simple à l'accompagnement complet, choisissez le niveau adapté à votre projet.",
+    "offersLink": "Comparer les trois offres en détail",
+    "originTitle": "D'où viennent nos étudiants",
+    "destinationTitle": "Où ils étudient",
+    "ctaFinal": "Prêt à construire votre avenir à l'international ?"
+  },
+  "services": {
+    "title": "Nos offres d'accompagnement",
+    "subtitle": "Trois niveaux pensés pour des besoins différents : gérer une partie des démarches soi-même, ou confier l'ensemble du parcours à GlobalEarn.",
+    "compareTitle": "Comparer les trois offres",
+    "table": {
+      "feature": "Fonctionnalité",
+      "rows": {
+        "account": { "feature": "Compte bloqué", "essentiel": "1 pays", "pack360": "Multi-pays", "premium": "Multi-pays" },
+        "avi": { "feature": "Attestation de virement (AVI)" },
+        "visa": { "feature": "Accompagnement visa" },
+        "mobileMoney": { "feature": "Mobile Money natif" },
+        "insurance": { "feature": "Assurances combinées" },
+        "housing": { "feature": "Logement assisté par IA" },
+        "career": { "feature": "Accompagnement carrière" },
+        "advisor": { "feature": "Conseiller dédié" },
+        "offices": { "feature": "Accès aux bureaux locaux" },
+        "api": { "feature": "Accès API" }
+      }
+    },
+    "ctaFinal": "Besoin d'aide pour choisir la formule adaptée ?",
+    "ctaButton": "Parler à un conseiller"
+  },
+  "offers": {
+    "essentiel": {
+      "name": "Essentiel",
+      "priceDetail": "ouverture + 5 €/mois",
+      "highlights": [
+        "Compte bloqué dans 1 pays",
+        "Attestation de virement irrévocable (AVI)",
+        "Suivi de dossier basique"
+      ]
+    },
+    "pack360": {
+      "name": "Pack 360°",
+      "priceDetail": "tout inclus",
+      "highlights": [
+        "Compte bloqué multi-pays",
+        "Accompagnement visa",
+        "Mobile Money natif",
+        "Assurances combinées",
+        "Logement assisté par IA",
+        "Accompagnement carrière"
+      ]
+    },
+    "premium": {
+      "name": "Premium",
+      "highlights": [
+        "Tous les avantages du Pack 360°",
+        "Conseiller dédié",
+        "Accès aux bureaux locaux",
+        "Accès API"
+      ]
+    }
+  },
+  "about": {
+    "title": "Une équipe engagée pour votre réussite internationale",
+    "subtitle": "GlobalEarn est basée au Cameroun et opère via des partenariats bancaires européens agréés pour la gestion des comptes bloqués.",
+    "missionTitle": "Notre mission",
+    "missionText": "Faciliter l'accès des étudiants africains aux meilleures opportunités académiques internationales grâce à un accompagnement de qualité couvrant l'ensemble du parcours de mobilité.",
+    "visionTitle": "Notre vision",
+    "visionText": "Devenir une référence en Afrique dans l'accompagnement des étudiants à l'international, grâce à une offre qui combine outils digitaux et présence humaine locale.",
+    "valuesTitle": "Nos valeurs",
+    "values": {
+      "excellence": { "title": "Excellence", "description": "Rechercher les meilleures solutions pour chaque étudiant, sans raccourci." },
+      "transparency": { "title": "Transparence", "description": "Expliquer chaque étape clairement, sans frais ni condition cachés." },
+      "achievement": { "title": "Réussite académique", "description": "Placer la réussite de chaque étudiant au cœur de l'accompagnement." },
+      "humanSupport": { "title": "Accompagnement humain", "description": "Rester présent avant, pendant et après le départ, pas seulement au moment de la vente." }
+    },
+    "diffTitle": "Ce qui nous différencie",
+    "differentiators": {
+      "mobileMoney": { "title": "Mobile Money natif", "description": "MTN, Orange Money et Wave intégrés directement, là où la plupart des acteurs du secteur n'acceptent que le virement bancaire international." },
+      "multiCountry": { "title": "Couverture multi-pays", "description": "Un seul compte bloqué pour plusieurs destinations européennes, plutôt qu'un compte à rouvrir à chaque nouveau pays visé." },
+      "presence": { "title": "Présence physique en Afrique", "description": "Des bureaux locaux pour un accompagnement de confiance, dans un secteur où la relation humaine reste déterminante." },
+      "verification": { "title": "Vérification consulaire instantanée", "description": "Des partenariats API permettent aux ambassades de vérifier l'attestation de virement en temps réel." }
+    },
+    "presenceTitle": "Notre présence",
+    "presenceText": "Basée au Cameroun, GlobalEarn opère via des partenariats bancaires européens agréés pour la gestion des comptes bloqués et accompagne les étudiants vers plusieurs destinations en Europe.",
+    "ctaFinal": "Envie d'en savoir plus sur notre accompagnement ?"
+  },
+  "contact": {
+    "title": "Parlons de votre projet",
+    "subtitle": "Décrivez votre situation, un conseiller GlobalEarn vous répond rapidement.",
+    "form": {
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "Email",
+      "subject": "Objet",
+      "subjectPlaceholder": "Sélectionnez un objet",
+      "subjectOptions": {
+        "info": "Demande d'information",
+        "technical": "Problème technique",
+        "partnership": "Partenariat",
+        "other": "Autre"
+      },
+      "message": "Message",
+      "optional": "optionnel",
+      "attachment": "Pièce jointe (optionnel)",
+      "attachmentHint": "PDF, JPG ou PNG — 5 Mo maximum",
+      "submit": "Envoyer le message",
+      "submitting": "Envoi en cours...",
+      "errors": {
+        "required": "Ce champ est obligatoire.",
+        "email": "Merci de saisir une adresse email valide.",
+        "messageTooShort": "",
+        "fileType": "Formats acceptés : PDF, JPG ou PNG uniquement.",
+        "fileSize": "Le fichier ne doit pas dépasser 5 Mo.",
+        "generic": "Une erreur est survenue lors de l'envoi. Merci de réessayer dans quelques instants."
+      }
+    },
+    "sidebar": {
+      "title": "Nos coordonnées",
+      "addressLabel": "Adresse",
+      "emailLabel": "Email",
+      "phoneLabel": "Téléphone"
+    }
+  },
+  "merci": {
+    "title": "Message envoyé !",
+    "subtitle": "Merci pour votre message. Un conseiller GlobalEarn vous répondra dans les plus brefs délais.",
+    "backHome": "Retour à l'accueil"
+  }
+}
