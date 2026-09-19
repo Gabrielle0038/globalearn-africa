@@ -1,5 +1,6 @@
 import { Resend } from 'resend'
 
+
 const ALLOWED_SUBJECTS = ['info', 'technical', 'partnership', 'other']
 const ALLOWED_FILE_TYPES = ['application/pdf', 'image/jpeg', 'image/jpg', 'image/png']
 const MAX_FILE_SIZE = 5 * 1024 * 1024 // 5 Mo
@@ -91,7 +92,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const resend = new Resend(config.resendApiKey)
-  const internalTo = config.contactEmail || 'contact@globalearn-africa.com'
+  const internalTo = config.contactEmail || 'angengatcha51@gmail.com'
   const attachments = attachment
     ? [{ filename: attachment.filename, content: attachment.data.toString('base64') }]
     : undefined

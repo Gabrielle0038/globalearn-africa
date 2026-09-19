@@ -7,7 +7,14 @@ useSeoMeta({
   title: 'GlobalEarn — Votre avenir commence ici',
   description: 'GlobalEarn accompagne les étudiants africains vers l\'Europe avec un compte bloqué multi-pays, le Mobile Money, un logement assisté par IA et un accompagnement carrière complet.',
   ogTitle: 'GlobalEarn — Votre avenir commence ici',
-  ogDescription: 'Compte bloqué multi-pays, Mobile Money natif, logement IA et accompagnement carrière pour les étudiants africains partant en Europe.'
+  ogDescription: 'Compte bloqué multi-pays, Mobile Money natif, logement IA et accompagnement carrière pour les étudiants africains partant en Europe.',
+   ogType: 'website',
+
+  ogUrl: 'https://globalearn-africa.com',
+
+  twitterCard: 'summary_large_image',
+
+  robots: 'index, follow'
 })
 
 const features = [
