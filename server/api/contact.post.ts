@@ -97,7 +97,7 @@ export default defineEventHandler(async (event) => {
   }
  
   const resend = new Resend(config.resendApiKey)
-  const internalTo = config.contactEmail || 'angengatcha51@gmail.com'
+  const internalTo = config.contactEmail || 'contact@globalearn-africa.com'
   const fromAddress = config.fromEmail || 'GlobalEarn <onboarding@resend.dev>'
   const attachments = attachment
     ? [{ filename: attachment.filename, content: attachment.data.toString('base64') }]
@@ -150,6 +150,15 @@ export default defineEventHandler(async (event) => {
     if (confirmResult.error) {
       throw confirmResult.error
     }
+ 
+    console.log('[contact] ✅ Les deux emails ont été acceptés par Resend sans erreur.')
+    return {
+      success: true,
+      debug: {
+        internalEmailId: internalResult.data?.id || null,
+        confirmEmailId: confirmResult.data?.id || null
+      }
+    }
   } catch (error: any) {
     console.error('[contact] ❌ Erreur envoi Resend :', error?.message || error)
     const isDomainError = error?.message?.includes('domain is not verified') || error?.error?.message?.includes('domain is not verified')
@@ -157,9 +166,8 @@ export default defineEventHandler(async (event) => {
       statusCode: 502,
       statusMessage: isDomainError
         ? "Le domaine d'envoi n'est pas vérifié sur Resend. Vérifie ton domaine sur resend.com/domains, ou utilise l'adresse de test onboarding@resend.dev en attendant."
-        : "L'envoi de l'email a échoué. Merci de réessayer."
+        : `Erreur Resend : ${error?.message || 'envoi échoué'}`
     })
   }
- 
-  return { success: true }
 })
+ 
