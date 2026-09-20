@@ -1,38 +1,39 @@
+
 <script setup lang="ts">
 const { t } = useI18n()
-
+ 
 useSeoMeta({
   title: 'Contact — GlobalEarn',
   description: 'Contactez GlobalEarn pour toute question sur nos offres d\'accompagnement vers les études en Europe.'
 })
-
+ 
 const subjectKeys = ['info', 'technical', 'partnership', 'other']
-
+ 
 const form = reactive({
   firstName: '',
   lastName: '',
   email: '',
   subject: '',
   message: '',
-  website: '' // honeypot
+  hp_check: '' // honeypot — nom volontairement peu commun pour éviter l'auto-remplissage navigateur
 })
-
+ 
 const attachmentFile = ref<File | null>(null)
 const fileError = ref('')
 const touched = reactive({ firstName: false, lastName: false, email: false, subject: false })
 const isSubmitting = ref(false)
 const serverError = ref('')
 const loadedAt = ref(0)
-
+ 
 const MAX_FILE_SIZE = 5 * 1024 * 1024
 const ALLOWED_TYPES = ['application/pdf', 'image/jpeg', 'image/jpg', 'image/png']
-
+ 
 onMounted(() => {
   loadedAt.value = Date.now()
 })
-
+ 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-
+ 
 const errors = computed(() => ({
   firstName: !form.firstName.trim() ? t('contact.form.errors.required') : '',
   lastName: !form.lastName.trim() ? t('contact.form.errors.required') : '',
@@ -43,11 +44,11 @@ const errors = computed(() => ({
       : '',
   subject: !form.subject ? t('contact.form.errors.required') : ''
 }))
-
+ 
 const isFormValid = computed(() =>
   Object.values(errors.value).every((e) => !e) && !fileError.value
 )
-
+ 
 function handleFileChange(e: Event) {
   fileError.value = ''
   const input = e.target as HTMLInputElement
@@ -70,18 +71,18 @@ function handleFileChange(e: Event) {
   }
   attachmentFile.value = file
 }
-
+ 
 async function handleSubmit() {
   serverError.value = ''
   touched.firstName = true
   touched.lastName = true
   touched.email = true
   touched.subject = true
-
+ 
   if (!isFormValid.value) return
-
+ 
   isSubmitting.value = true
-
+ 
   try {
     const payload = new FormData()
     payload.append('firstName', form.firstName.trim())
@@ -89,12 +90,12 @@ async function handleSubmit() {
     payload.append('email', form.email.trim())
     payload.append('subject', form.subject)
     payload.append('message', form.message.trim())
-    payload.append('website', form.website)
+    payload.append('hp_check', form.hp_check)
     payload.append('loadedAt', String(loadedAt.value))
     if (attachmentFile.value) {
       payload.append('attachment', attachmentFile.value)
     }
-
+ 
     await $fetch('/api/contact', { method: 'POST', body: payload })
     await navigateTo('/merci')
   } catch (err: any) {
@@ -104,14 +105,14 @@ async function handleSubmit() {
   }
 }
 </script>
-
+ 
 <template>
   <div>
     <section class="relative overflow-hidden">
       <div class="pointer-events-none absolute -top-24 left-1/4 h-80 w-80 rounded-full bg-cyan/10 blur-[110px] dark:bg-cyan/10" aria-hidden="true" />
       <div class="pointer-events-none absolute -top-10 right-1/5 h-72 w-72 rounded-full bg-accent/15 blur-[100px] dark:bg-accent/10" aria-hidden="true" />
       <div class="pointer-events-none absolute bottom-0 left-1/2 h-64 w-64 rounded-full bg-violet/10 blur-[100px] dark:bg-violet/10" aria-hidden="true" />
-
+ 
       <div class="relative mx-auto max-w-4xl px-5 pb-4 pt-16 text-center lg:px-8 lg:pt-24">
         <p class="inline-flex items-center gap-1.5 rounded-full bg-[#FDEEDD] px-4 py-1.5 text-sm font-medium text-[#9A4A05] dark:bg-accent/15 dark:text-accent-light">
           <span class="h-1.5 w-1.5 rounded-full bg-accent" />
@@ -125,7 +126,7 @@ async function handleSubmit() {
         </p>
       </div>
     </section>
-
+ 
     <section class="pb-12 pt-4 lg:pb-16">
       <div class="mx-auto grid max-w-5xl gap-8 px-5 lg:grid-cols-[1.4fr_1fr] lg:px-8">
         <form novalidate class="relative rounded-2xl border border-gray-100 bg-white p-6 shadow-[0_16px_48px_rgba(27,45,91,0.08)] dark:border-stroke-dark dark:bg-card-dark dark:shadow-[0_16px_48px_rgba(0,0,0,0.3)] lg:p-8" @submit.prevent="handleSubmit">
@@ -136,7 +137,7 @@ async function handleSubmit() {
           >
             {{ serverError }}
           </div>
-
+ 
           <div class="grid gap-5 sm:grid-cols-2">
             <div>
               <label for="firstName" class="text-sm font-medium text-navy dark:text-white">{{ t('contact.form.firstName') }} *</label>
@@ -150,7 +151,7 @@ async function handleSubmit() {
               >
               <p v-if="touched.firstName && errors.firstName" class="mt-1 text-xs text-red-600 dark:text-red-400">{{ errors.firstName }}</p>
             </div>
-
+ 
             <div>
               <label for="lastName" class="text-sm font-medium text-navy dark:text-white">{{ t('contact.form.lastName') }} *</label>
               <input
@@ -164,7 +165,7 @@ async function handleSubmit() {
               <p v-if="touched.lastName && errors.lastName" class="mt-1 text-xs text-red-600 dark:text-red-400">{{ errors.lastName }}</p>
             </div>
           </div>
-
+ 
           <div class="mt-5">
             <label for="email" class="text-sm font-medium text-navy dark:text-white">{{ t('contact.form.email') }} *</label>
             <input
@@ -177,7 +178,7 @@ async function handleSubmit() {
             >
             <p v-if="touched.email && errors.email" class="mt-1 text-xs text-red-600 dark:text-red-400">{{ errors.email }}</p>
           </div>
-
+ 
           <div class="mt-5">
             <label for="subject" class="text-sm font-medium text-navy dark:text-white">{{ t('contact.form.subject') }} *</label>
             <select
@@ -194,7 +195,7 @@ async function handleSubmit() {
             </select>
             <p v-if="touched.subject && errors.subject" class="mt-1 text-xs text-red-600 dark:text-red-400">{{ errors.subject }}</p>
           </div>
-
+ 
           <div class="mt-5">
             <label for="message" class="text-sm font-medium text-navy dark:text-white">
               {{ t('contact.form.message') }}
@@ -207,7 +208,7 @@ async function handleSubmit() {
               class="mt-1.5 w-full rounded-[10px] border border-gray-200 px-4 py-2.5 text-sm text-ink outline-none transition-colors focus:border-accent dark:border-stroke-dark dark:bg-bg-dark dark:text-white dark:focus:border-accent"
             />
           </div>
-
+ 
           <div class="mt-5">
             <label for="attachment" class="text-sm font-medium text-navy dark:text-white">{{ t('contact.form.attachment') }}</label>
             <input
@@ -220,13 +221,13 @@ async function handleSubmit() {
             <p class="mt-1 text-xs text-muted dark:text-muted-dark">{{ t('contact.form.attachmentHint') }}</p>
             <p v-if="fileError" class="mt-1 text-xs text-red-600 dark:text-red-400">{{ fileError }}</p>
           </div>
-
+ 
           <!-- Honeypot anti-spam : champ caché, ne doit jamais être rempli par un humain -->
           <div class="absolute -left-[9999px]" aria-hidden="true">
-            <label for="website">Site web</label>
-            <input id="website" v-model="form.website" type="text" tabindex="-1" autocomplete="off">
+            <label for="hp_check">Ne pas remplir</label>
+            <input id="hp_check" v-model="form.hp_check" type="text" tabindex="-1" autocomplete="off">
           </div>
-
+ 
           <button
             type="submit"
             :disabled="isSubmitting"
@@ -239,7 +240,7 @@ async function handleSubmit() {
             {{ isSubmitting ? t('contact.form.submitting') : t('contact.form.submit') }}
           </button>
         </form>
-
+ 
         <div class="h-fit rounded-2xl border border-gray-100 bg-white p-6 shadow-[0_16px_48px_rgba(27,45,91,0.08)] dark:border-stroke-dark dark:bg-card-dark dark:shadow-[0_16px_48px_rgba(0,0,0,0.3)]">
           <h2 class="font-display text-base font-semibold text-navy dark:text-white">{{ t('contact.sidebar.title') }}</h2>
           <dl class="mt-5 space-y-5 text-sm">
@@ -255,7 +256,7 @@ async function handleSubmit() {
                 <dd class="mt-0.5 text-ink dark:text-white/85">{{ t('common.countries.doualaCameroon') }}</dd>
               </div>
             </div>
-
+ 
             <div class="flex items-start gap-3">
               <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-accent-light">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -272,7 +273,7 @@ async function handleSubmit() {
                 </dd>
               </div>
             </div>
-
+ 
             <div class="flex items-start gap-3">
               <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-violet to-[#C4B5FD]">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
